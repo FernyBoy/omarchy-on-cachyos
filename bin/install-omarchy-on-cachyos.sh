@@ -90,10 +90,6 @@ sed -i '/linux-cachyos/ ! s/pacman -Q linux/pacman -Q linux-cachyos/' bin/omarch
 # Remove pacman.sh from preflight/all.sh to prevent conflict with cachyos packages
 sed -i '/run_logged \$OMARCHY_INSTALL\/preflight\/pacman\.sh/d' install/preflight/all.sh
 
-# Replace nvidia.sh with custom CachyOS 580xx Driver Logic
-cp ../bin/nvidia.sh install/config/hardware/nvidia.sh
-chmod +x install/config/hardware/nvidia.sh
-
 # Fix omarchy-ai-skill.sh symlink to be idempotent on re-runs
 sed -i 's/ln -s/ln -sf/' install/config/omarchy-ai-skill.sh
 
